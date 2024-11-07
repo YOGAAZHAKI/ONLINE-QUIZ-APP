@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Quiz - Full Stack Development</title>
+</head>
+<body>
+    <h1>Full Stack Development Quiz</h1>
+    <form method="POST">
+        {% for question, data in questions.items() %}
+            <fieldset>
+                <legend>{{ question }}</legend>
+                {% for option in data['options'] %}
+                    <label>
+                        <input type="radio" name="{{ question }}" value="{{ option }}">
+                        {{ option }}
+                    </label><br>
+                {% endfor %}
+            </fieldset>
+        {% endfor %}
+        <br>
+        <button type="submit">Submit Quiz</button>
+    </form>
+</body>
+</html>
